@@ -20,7 +20,7 @@ Router.route('/detail/:_id',function(){
     },
     data : function(){
         var category = Categories.findOne(this.params._id);
-        Meteor.call('scrapy_sstruyen_stories_by_category', _.unescape(category.url),function(err,data){
+        Meteor.call('scrapy_sstruyen_stories_by_category', category.url,function(err,data){
             Session.set('stories',data)
         });
 

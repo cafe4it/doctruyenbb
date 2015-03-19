@@ -41,6 +41,11 @@
                         <tr>
                             <th></th>
                             <th>Tiêu đề</th>
+                            <th>Info 1</th>
+                            <th>Tác giả</th>
+                            <th>Info 2</th>
+                            <th>Hot</th>
+                            <th>Full</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,6 +56,8 @@
                                 <td>{{info1}}</td>
                                 <td>{{author_name}}</td>
                                 <td>{{info2}}</td>
+                                <td><img src="{{is_hot}}" alt=""/></td>
+                                <td><img src="{{is_full}}" alt=""/></td>
                             </tr>
                         {{/each}}
                     </tbody>
