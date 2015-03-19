@@ -1,0 +1,66 @@
+<template name="header">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{pathFor 'home'}}">Đọc Truyện BB 10</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                {{#if isInRole 'admin'}}
+                    <ul class="nav navbar-nav">
+                        <li class="{{isActiveRoute regex='home'}}">
+                            <a href="{{pathFor 'home'}}">
+                                <i class="fa fa-home"></i>
+                                Trang chủ
+                            </a>
+                        </li>
+                    </ul>
+                {{/if}}
+                <ul class="nav navbar-nav navbar-right">
+                    {{#if currentUser}}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false">{{ currentUser.username }} <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                {{#if isInRole 'admin'}}
+                                    <li class="{{isActiveRoute regex='managerUsers'}}">
+                                        <a href="{{pathFor 'managerUsers'}}">
+                                            <i class="fa fa-fire-extinguisher"></i>
+                                            Quản lý site
+                                        </a>
+                                    </li>
+                                {{/if}}
+                                <li>
+                                    <a href="{{pathFor 'Logout'}}">
+                                        <i class="fa fa-power-off"></i>
+                                        Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    {{else}}
+                        <li class="{{isActiveRoute regex='SignIn'}}">
+                            <a href="{{pathFor route='SignIn'}}">
+                                <i class="fa fa-sign-in"></i>
+                                Đăng nhập
+                            </a>
+                        </li>
+                        <li class="{{isActiveRoute regex='SignUp'}}">
+                            <a href="{{pathFor route='SignUp'}}">
+                                <i class="fa fa-paper-plane"></i>
+                                Đăng ký
+                            </a>
+                        </li>
+                    {{/if}}
+                </ul>
+            </div>
+            <!--/.navbar-collapse -->
+        </div>
+    </nav>
+</template>

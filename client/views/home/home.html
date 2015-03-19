@@ -1,0 +1,61 @@
+<template name="home">
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-success" id="btn_updateCategories">
+                Cập nhật danh mục
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Tên danh mục</th>
+                        <th>Liên kết</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each sstruyen_categories}}
+                        <tr>
+                            <td>{{title}}</td>
+                            <td><a id="btn_{{_id}}" href="#" data-id={{_id}} data-href="{{url}}" class="btn btn-success">
+                                Chi tiết
+                            </a></td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="home_detail">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Tiêu đề</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each stories}}
+                            <tr>
+                                <td><img src="{{thumbnail}}" alt="{{title}}" width="50" height="65"/></td>
+                                <td>{{title}}</td>
+                                <td>{{info1}}</td>
+                                <td>{{author_name}}</td>
+                                <td>{{info2}}</td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</template>
