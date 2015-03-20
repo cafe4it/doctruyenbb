@@ -28,6 +28,9 @@ Router.route('/detail/:_id',function(){
             stories : Session.get('stories')
         }
     },
+    action : function(){
+
+    },
     fastRender: true
 })
 

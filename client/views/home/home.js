@@ -28,6 +28,19 @@ Template.home_detail.created = function(){
     Session.set('title','Đọc truyện BB 10');
 }
 
+Template.home_detail.events({
+    'click #btn_testio' : function(e,t){
+        e.preventDefault()
+        var category = Categories.findOne(Router.current().params._id);
+
+        if(category){
+            Meteor.call('importio_sstruyen_listtruyen',category.url,function(err,data){
+                console.log(data)
+            })
+        }
+    }
+})
+
 /*
 Template.home_detail.helpers({
     stories : function(){

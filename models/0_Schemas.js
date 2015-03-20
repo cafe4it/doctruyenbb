@@ -18,6 +18,8 @@ Schemas.Category = new SimpleSchema({
             return new Date;
         }
     }
-})
+});
+
+
 
 Categories.attachSchema(Schemas.Category);
