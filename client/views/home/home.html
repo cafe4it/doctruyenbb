@@ -4,6 +4,7 @@
             <button class="btn btn-success" id="btn_updateCategories">
                 Cập nhật danh mục
             </button>
+
         </div>
     </div>
     <div class="row">
@@ -36,35 +37,43 @@
     <div class="row">
         <div class="col-md-12">
             <button id="btn_testio">Test IO</button>
+            &nbsp;
+            <button class="btn btn-danger" id="btn_getXRay">
+                X-Ray
+            </button>
         </div>
     </div>
+    {{> display_stories}}
+</template>
+
+<template name="display_stories">
     <div class="row">
         <div class="col-md-12">
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
-                        <tr>
-                            <th></th>
-                            <th>Tiêu đề</th>
-                            <th>Info 1</th>
-                            <th>Tác giả</th>
-                            <th>Info 2</th>
-                            <th>Hot</th>
-                            <th>Full</th>
-                        </tr>
+                    <tr>
+                        <th></th>
+                        <th>Tiêu đề</th>
+                        <th>Chương</th>
+                        <td>Tags</td>
+                        <th>Tác giả</th>
+                        <th>Hot</th>
+                        <th>Full</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        {{#each stories}}
-                            <tr>
-                                <td><img src="{{thumbnail}}" alt="{{title}}" width="50" height="65"/></td>
-                                <td>{{title}}</td>
-                                <td>{{info1}}</td>
-                                <td>{{author_name}}</td>
-                                <td>{{info2}}</td>
-                                <td><img src="{{is_hot}}" alt=""/></td>
-                                <td><img src="{{is_full}}" alt=""/></td>
-                            </tr>
-                        {{/each}}
+                    {{#each stories}}
+                        <tr>
+                            <td><img src="{{thumbnail}}" alt="{{title}}" width="50" height="65"/></td>
+                            <td>{{title}}</td>
+                            <td>{{chapters}}</td>
+                            <td>{{tags}}</td>
+                            <td>{{author_name}}</td>
+                            <td>{{is_hot}}</td>
+                            <td>{{is_full}}</td>
+                        </tr>
+                    {{/each}}
                     </tbody>
                 </table>
             </div>

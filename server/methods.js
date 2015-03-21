@@ -13,7 +13,8 @@ Meteor.methods({
                             },{
                                 $set : {
                                     url : _.escape(i.href),
-                                    title : i.title
+                                    title : i.title,
+                                    source : 'sstruyen'
                                 }
                             })
                         })
@@ -52,7 +53,40 @@ Meteor.methods({
         })
         return rs.result;
     },
+    xray_az_sstruyen_stories : function(page){
+        var az_sstruyen_stories_url = _.template('http://sstruyen.com/m/index.php?lib=all&cate=&order=6&page=<%=page%>');
+        var page = page || 0,
+            url = az_sstruyen_stories_url({page : page});
+        var rs = Async.runSync(function(done){
+            xRay(url)
+                .format(function(obj){
+                    var isHot = _.isUndefined(obj.is_hot),
+                        isFull = _.isUndefined(obj.is_full),
+                        chapters = obj.info1.replace(/[^0-9]/g, '') || 0,
+                        tags = obj.info1.substring(0, obj.info1.indexOf('|')-1) || ''
+                    var newObj = _.extend(obj, {is_hot : isHot, is_full : isFull, chapters : chapters, tags : tags});
+                    return _.omit(newObj,'info1');
+                })
+                .select([{
+                    $root : '.storylist ul li',
+                    title : '.sttitle',
+                    href : 'a[href]',
+                    is_hot : '.sttitle img[src]',
+                    thumbnail : 'a img[src]',
+                    info1 : 'div p:nth-child(2)',
+                    is_full : 'div p:nth-child(2) img[src]',
+                    author_name : 'div p:nth-child(3) a',
+                    author_href : 'div p:nth-child(3) a[href]',
+                    info2 : 'div p:nth-child(4)'
+                }])
+                .run(function(err,data){
+                    if(err)throw new Meteor.Error(err)
+                    done(null,data);
 
+                })
+        });
+        return rs.result;
+    },
     scrapy_sstruyen_stories_by_category : function(url, page){
         if(url){
             var titleSelector = '#main_page > div.storylist > ul > li > div > h4 > b > a',
@@ -109,10 +143,8 @@ Meteor.methods({
                     _.each(values,function(value){
                         result.push(_.object(keys,value))
                     });
-                    result = _.map(result,function(i){
-                        var dk = _.isUndefined(i.href);
-                        console.log(dk);
-                        if(_.isUndefined(i.href) == false) return i;
+                    result = _.reject(result,function(i){
+                        if(_.isUndefined(i.href)) return i;
                     })
                     done(null, result);
 

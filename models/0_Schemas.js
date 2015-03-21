@@ -12,6 +12,10 @@ Schemas.Category = new SimpleSchema({
         type : String,
         label : 'Đường dẫn URL'
     },
+    source :{
+        type : String,
+        optional : true
+    },
     updated_at : {
         type : Date,
         autoValue: function() {
@@ -20,6 +24,11 @@ Schemas.Category = new SimpleSchema({
     }
 });
 
+Stories = new Meteor.Collection('stories');
 
+Schemas.Story = new SimpleSchema({
+    
+})
 
 Categories.attachSchema(Schemas.Category);
+Stories.attachSchema(Schemas.Story);

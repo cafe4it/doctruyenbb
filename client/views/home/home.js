@@ -38,6 +38,12 @@ Template.home_detail.events({
                 console.log(data)
             })
         }
+    },
+    'click #btn_getXRay' : function(e,t){
+        e.preventDefault();
+        Meteor.call('xray_az_sstruyen_stories', function(err,data){
+            console.log(data);
+        })
     }
 })
 
