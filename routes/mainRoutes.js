@@ -18,20 +18,23 @@ Router.route('/detail/:_id',function(){
     category : function(){
         return Categories.findOne(this.params._id);
     },
-    data : function(){
-/*        var category = Categories.findOne(this.params._id);
+
+    /*data : function(){
+*//*        var category = Categories.findOne(this.params._id);
         Meteor.call('scrapy_sstruyen_stories_by_category', category.url,function(err,data){
             Session.set('stories',data)
-        });*/
+        });*//*
         Meteor.call('xray_az_sstruyen_stories', function(err,data){
             Session.set('stories',data)
         })
         return {
             stories : Session.get('stories')
         }
-    },
-    action : function(){
-
+    },*/
+    onAfterAction : function(){
+        Meteor.call('xray_az_sstruyen_stories', function(err,data){
+            Session.set('stories',data)
+        })
     },
     fastRender: true
 });

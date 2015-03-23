@@ -28,6 +28,12 @@ Template.home_detail.created = function(){
     Session.set('title','Đọc truyện BB 10');
 }
 
+Template.display_stories.helpers({
+    stories : function(){
+        return Session.get('stories')
+    }
+})
+
 Template.home_detail.events({
     'click #btn_testio' : function(e,t){
         e.preventDefault()

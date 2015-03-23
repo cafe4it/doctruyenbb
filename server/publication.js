@@ -8,4 +8,9 @@ Meteor.publish('categories',function(){
 
 Meteor.publish('category',function(id){
     return Categories.find(id);
-})
+});
+
+Meteor.publish('authors',function(){
+    return Authors.find()
+});
+

@@ -1,30 +1,4 @@
 Meteor.methods({
-    "userExists": function (username) {
-        return !!Meteor.users.findOne({username: username});
-    },
-    update_sstruyen_categories : function(){
-        if(Meteor.userId()){
-            var rs = Async.runSync(function(done){
-                Meteor.call('scrapy_sstruyen_categories',function(err,data){
-                    if(data){
-                        _.each(data,function(i){
-                            Categories.upsert({
-                                url : _.escape(i.href)
-                            },{
-                                $set : {
-                                    url : _.escape(i.href),
-                                    title : i.title,
-                                    source : 'sstruyen'
-                                }
-                            })
-                        })
-                    }
-                    done(null,true);
-                })
-            })
-            return rs.result;
-        }
-    },
     scrapy_sstruyen_categories : function(url){
         var url = url || 'http://sstruyen.com/m/',
             selector = '#bottom-menu > ul > li > div > a',
@@ -60,11 +34,13 @@ Meteor.methods({
         var rs = Async.runSync(function(done){
             xRay(url)
                 .format(function(obj){
-                    var isHot = _.isUndefined(obj.is_hot),
-                        isFull = _.isUndefined(obj.is_full),
+                    var isHot = _.isUndefined(obj.is_hot) || false,
+                        isFull = _.isUndefined(obj.is_full) || false,
                         chapters = obj.info1.replace(/[^0-9]/g, '') || 0,
-                        tags = obj.info1.substring(0, obj.info1.indexOf('|')-1) || ''
-                    var newObj = _.extend(obj, {is_hot : isHot, is_full : isFull, chapters : chapters, tags : tags});
+                        tags = obj.info1.substring(0, obj.info1.indexOf('|')-1) || '',
+                        title = obj.title.trimLeft().trimRight();
+                    var categories = _.map(tags.split(','),function(t){return vietnameseToSlug(t,"").toUpperCase()});
+                    var newObj = _.extend(obj, {title : title,is_hot : isHot, is_full : isFull, chapters : chapters, tags : categories});
                     return _.omit(newObj,'info1');
                 })
                 .select([{
@@ -82,7 +58,6 @@ Meteor.methods({
                 .run(function(err,data){
                     if(err)throw new Meteor.Error(err)
                     done(null,data);
-
                 })
         });
         return rs.result;
