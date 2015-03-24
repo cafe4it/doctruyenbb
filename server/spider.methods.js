@@ -39,7 +39,10 @@ Meteor.methods({
                         chapters = obj.info1.replace(/[^0-9]/g, '') || 0,
                         tags = obj.info1.substring(0, obj.info1.indexOf('|')-1) || '',
                         title = obj.title.trimLeft().trimRight();
-                    var categories = _.map(tags.split(','),function(t){return vietnameseToSlug(t,"").toUpperCase()});
+                    var categories = _.map(tags.split(','),function(t){return {
+                        name : t,
+                        code : vietnameseToSlug2(t,"")
+                    }});
                     var newObj = _.extend(obj, {title : title,is_hot : isHot, is_full : isFull, chapters : chapters, tags : categories});
                     return _.omit(newObj,'info1');
                 })
@@ -57,10 +60,30 @@ Meteor.methods({
                 }])
                 .run(function(err,data){
                     if(err)throw new Meteor.Error(err)
+                    console.log(_.size(data))
                     done(null,data);
                 })
         });
         return rs.result;
+    },
+    xray_sstruyen_story : function(url){
+        if(url){
+            var rs = Async.runSync(function(done) {
+                xRay(url)
+                    .select([{
+                        $root:'#main_page',
+                        title : '.titlebar h1',
+                        cover : '.truyeninfo .truyenimg img[src]',
+                        summary : '#divDes'
+                    }])
+                    .run(function(err,data){
+                        if(err)throw new Meteor.Error(err)
+                        console.log(_.size(data))
+                        done(null,data);
+                    })
+            })
+            return rs.result;
+        }
     },
     scrapy_sstruyen_stories_by_category : function(url, page){
         if(url){
@@ -139,8 +162,9 @@ Meteor.methods({
             }
         }
     },
-    importio_sstruyen_listtruyen : function(url){
-        if(url){
+    importio_sstruyen_listtruyen : function(fromPage,toPage){
+        var fromPage = fromPage || 0, toPage = toPage || 0;
+        if(fromPage && toPage){
             /*var api = sstruyen_listruyen_api({url : encodeURIComponent(url), apikey :encodeURIComponent(ImportIo_APIKEY)});
             var rs = Async.runSync(function(done){
                 HTTP.get(api,function(err,data){
@@ -184,7 +208,7 @@ Meteor.methods({
                         }
                     }
                 }
-                for(var i = 0; i< 189; i++){
+                for(var i = fromPage; i<= toPage; i++){
                     runningQueries += 1;
                     importioClient.query({
                         "connectorGuids": [

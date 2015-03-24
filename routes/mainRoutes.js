@@ -13,28 +13,17 @@ Router.route('/detail/:_id',function(){
 },{
     name : 'home_detail',
     waitOn : function(){
-        return Meteor.subscribe('category',this.params._id)
+        return [
+            Meteor.subscribe('category',this.params._id),
+            Meteor.subscribe('stories2ByCategory',this.params._id),
+            Meteor.subscribe('stories2cover'),
+        ]
     },
     category : function(){
         return Categories.findOne(this.params._id);
     },
-
-    /*data : function(){
-*//*        var category = Categories.findOne(this.params._id);
-        Meteor.call('scrapy_sstruyen_stories_by_category', category.url,function(err,data){
-            Session.set('stories',data)
-        });*//*
-        Meteor.call('xray_az_sstruyen_stories', function(err,data){
-            Session.set('stories',data)
-        })
-        return {
-            stories : Session.get('stories')
-        }
-    },*/
     onAfterAction : function(){
-        Meteor.call('xray_az_sstruyen_stories', function(err,data){
-            Session.set('stories',data)
-        })
+
     },
     fastRender: true
 });

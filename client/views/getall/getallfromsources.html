@@ -1,7 +1,8 @@
 <template name="getAllFromSources">
     <div class="row">
         <div class="col-md-12">
-            <input type="number" id="fromPage" value="0"/><input type="number" id="toPage" value="1"/><button id="btnGetAll">Quét thôi</button> &nbsp; <button class="btn btn-danger" id="btnImport">Nhập vào DB</button>
+            <input type="number" id="fromPage" value="0"/><input type="number" id="toPage" value="1"/><button id="btnGetAll">Quét thôi</button> &nbsp; <button class="btn btn-danger" id="btnImport">Nhập vào DB</button> &nbsp; <button class="btn btn-warning" id="btnTransfer">Chuyển => Story2</button> <br>
+            <div class="alert alert-info" role="alert"><b>{{result.i}}</b> / <b>{{result.s}}</b> </div>
         </div>
     </div>
     {{> display_stories}}

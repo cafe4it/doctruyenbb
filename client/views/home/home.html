@@ -43,7 +43,42 @@
             </button>
         </div>
     </div>
-    {{> display_stories}}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Tiêu đề</th>
+                        <th>Danh mục</th>
+                        <th>Tác giả</th>
+                        <th>Hot</th>
+                        <th>Full</th>
+                        <td></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each stories}}
+                        <tr>
+                            <td><img src="{{story_cover}}" alt="{{title}}" width="50" height="65"/></td>
+                            <td>{{title}}</td>
+                            <td>
+                                {{#each categories}}
+                                    <a href="/tags/{{code}}">{{name}}</a>
+                                {{/each}}
+                            </td>
+                            <td>{{author.name}}</td>
+                            <td>{{is_hot}}</td>
+                            <td>{{is_finished}}</td>
+                            <td> <button class="btn btn-success" data-id="{{_id}}" id="btnTest_{{_id}}">Test</button>  </td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </template>
 
 <template name="display_stories">

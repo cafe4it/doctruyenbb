@@ -30,3 +30,7 @@ cafe4it:import-io
 cafe4it:x-ray
 cfs:standard-packages
 cfs:gridfs
+cfs:ui
+cfs:ejson-file
+reywood:publish-composite
+meteorhacks:kadira
