@@ -70,19 +70,45 @@ Meteor.methods({
         if(url){
             var rs = Async.runSync(function(done) {
                 xRay(url)
-                    .select([{
+                    .format(function(obj){
+                        var summary = obj.summary.substr(0,obj.summary.length-4);
+                        return _.extend(obj,{summary : summary})
+                    })
+                    .select({
                         $root:'#main_page',
                         title : '.titlebar h1',
                         cover : '.truyeninfo .truyenimg img[src]',
-                        summary : '#divDes'
-                    }])
+                        summary : '#divDes',
+                        chapters : [{
+                            $root : 'div:nth-child(7) div div div:nth-child(4) div',
+                            href : '.items a[href]'
+                        }]
+                    })
                     .run(function(err,data){
-                        if(err)throw new Meteor.Error(err)
-                        console.log(_.size(data))
-                        done(null,data);
+                        if(err)throw new Meteor.Error(err);
+                        done(null,data)
                     })
             })
             return rs.result;
+        }
+    },
+    xray_sstruyen_story_chapters : function(url){
+        if(url){
+            var rs1 = Async.runSync(function(done1){
+                xRay(url)
+                    .paginate('#main_page div:nth-child(4) a[href]')
+                    .select([{
+                        $root : '#main_page',
+                        title : '.detail-content center:nth-child(3) h3:nth-child(1)'
+                        //content : '#chapt-content div'
+                    }])
+                    .run(function(err1,data1){
+                        if(err1)throw new Meteor.Error(err1);
+                        done1(null,data1);
+                        console.log(data1)
+                    })
+            })
+            return rs1.result;
         }
     },
     scrapy_sstruyen_stories_by_category : function(url, page){

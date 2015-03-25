@@ -69,7 +69,8 @@ Template.home_detail.events({
             var buttonId = jquerySelectorId({id: e.currentTarget.id}), button = $(buttonId), data_id = button.attr('data-id');
             var story = Stories2.findOne(data_id);
             Meteor.call('xray_sstruyen_story',story.urls[0],function(err,rs){
-                console.log(rs);
+                var obj = rs;
+                console.log(obj)
             })
         }
     }
