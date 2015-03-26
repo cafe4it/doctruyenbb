@@ -140,7 +140,7 @@ Meteor.methods({
         return size;
     },
     update_sstruyen_onlyfull : function(){
-        var Stories = Stories2.find().fetch();
+        var Stories = Stories2.find({},{sort:{code :1}}).fetch();
         var size = _.size(Stories);
         _.each(Stories,function(story){
             Meteor.call('xray_sstruyen_story',story.urls[0],function(err,data){

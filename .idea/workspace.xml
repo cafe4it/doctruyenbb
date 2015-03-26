@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71280c55-15d0-465c-8b6c-85fb3f0a39fd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/.finished-upgraders" afterPath="$PROJECT_DIR$/.meteor/.finished-upgraders" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/0_Schemas.js" afterPath="$PROJECT_DIR$/models/0_Schemas.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/getAllRoute.js" afterPath="$PROJECT_DIR$/routes/getAllRoute.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/getall/getallfromsources.html" afterPath="$PROJECT_DIR$/client/views/getall/getallfromsources.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/getall/getallfromsources.js" afterPath="$PROJECT_DIR$/client/views/getall/getallfromsources.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/mongo.methods.js" afterPath="$PROJECT_DIR$/server/mongo.methods.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/publication.js" afterPath="$PROJECT_DIR$/server/publication.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/release" afterPath="$PROJECT_DIR$/.meteor/release" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/spider.methods.js" afterPath="$PROJECT_DIR$/server/spider.methods.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/versions" afterPath="$PROJECT_DIR$/.meteor/versions" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="doctruyenbb.iws" />
@@ -86,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mongo.methods.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mongo.methods.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/mongo.methods.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1286" max-vertical-offset="1995">
-              <caret line="98" column="9" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.3147208" vertical-offset="1376" max-vertical-offset="1995">
+              <caret line="140" column="6" selection-start-line="140" selection-start-column="6" selection-end-line="140" selection-end-column="6" />
               <folding>
                 <element signature="e#4255#5832#0" expanded="false" />
               </folding>
@@ -98,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getallfromsources.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="getallfromsources.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/views/getall/getallfromsources.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4488189" vertical-offset="654" max-vertical-offset="1140">
-              <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="759" max-vertical-offset="1140">
+              <caret line="53" column="6" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -166,8 +157,8 @@
         <option value="$PROJECT_DIR$/models/0_Schemas.js" />
         <option value="$PROJECT_DIR$/server/publication.js" />
         <option value="$PROJECT_DIR$/routes/getAllRoute.js" />
-        <option value="$PROJECT_DIR$/server/mongo.methods.js" />
         <option value="$PROJECT_DIR$/client/views/getall/getallfromsources.js" />
+        <option value="$PROJECT_DIR$/server/mongo.methods.js" />
       </list>
     </option>
   </component>
@@ -375,6 +366,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doctruyenbb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doctruyenbb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".meteor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doctruyenbb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doctruyenbb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".meteor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -494,7 +517,19 @@
       <option name="project" value="LOCAL" />
       <updated>1427270389022</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="query vẫn rất chậm, đang viết crawler update chapters">
+      <created>1427366830626</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1427366830626</updated>
+    </task>
+    <task id="LOCAL-00005" summary="query vẫn rất chậm, đang viết crawler update chapters">
+      <created>1427367219655</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1427367219655</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -539,7 +574,8 @@
     </option>
     <MESSAGE value="import rất ch" />
     <MESSAGE value="query vẫn rất chậm, đang viết crawler chi tiết truyện" />
-    <option name="LAST_COMMIT_MESSAGE" value="query vẫn rất chậm, đang viết crawler chi tiết truyện" />
+    <MESSAGE value="query vẫn rất chậm, đang viết crawler update chapters" />
+    <option name="LAST_COMMIT_MESSAGE" value="query vẫn rất chậm, đang viết crawler update chapters" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -905,14 +941,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/0_Schemas.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3266" max-vertical-offset="3660">
-          <caret line="230" column="22" selection-start-line="230" selection-start-column="22" selection-end-line="230" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/publication.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="915">
@@ -929,21 +957,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/mongo.methods.js">
+    <entry file="file://$PROJECT_DIR$/models/0_Schemas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1286" max-vertical-offset="1995">
-          <caret line="98" column="9" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
-          <folding>
-            <element signature="e#4255#5832#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="3266" max-vertical-offset="3660">
+          <caret line="230" column="22" selection-start-line="230" selection-start-column="22" selection-end-line="230" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/views/getall/getallfromsources.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4488189" vertical-offset="654" max-vertical-offset="1140">
-          <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="759" max-vertical-offset="1140">
+          <caret line="53" column="6" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/mongo.methods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3147208" vertical-offset="1376" max-vertical-offset="1995">
+          <caret line="140" column="6" selection-start-line="140" selection-start-column="6" selection-end-line="140" selection-end-column="6" />
+          <folding>
+            <element signature="e#4255#5832#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
