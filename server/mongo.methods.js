@@ -139,16 +139,16 @@ Meteor.methods({
         }
         return size;
     },
-    update_sstruyen_onlyfull : function(items){
-        var Stories = items || Stories2.find({is_finished : true}).fetch();
+    update_sstruyen_onlyfull : function(){
+        var Stories = Stories2.find().fetch();
         var size = _.size(Stories);
         _.each(Stories,function(story){
             Meteor.call('xray_sstruyen_story',story.urls[0],function(err,data){
-                /*var rs = Stories2.update({_id : story._id},{
+                var rs = Stories2.update({_id : story._id},{
                     $set : {
                         summary : data.summary
                     }
-                });*/
+                });
 
                 _.each(data.chapters,function(chapter){
                     Chapters.upsert({code : chapter.id},{
