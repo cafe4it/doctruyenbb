@@ -60,5 +60,12 @@ Template.getAllFromSources.events({
                 Session.set('result_i',_.size(stories))
             })
         }
+    },
+    'click #btnUpdateStories' : function(e,t){
+        e.preventDefault();
+        var items = Stories2.find({is_finished : true}).fetch();
+        Meteor.call('update_sstruyen_onlyfull',items,function(err,data){
+            console.log(data);
+        })
     }
 })

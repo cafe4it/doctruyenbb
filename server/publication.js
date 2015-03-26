@@ -41,6 +41,10 @@ Meteor.publishComposite('stories2ByCategory',function(cate_id){
     }
 })
 
+Meteor.publish('stories2href_onlyfull',function(){
+    return Stories2.find({is_finished : true},{fields : {title : 1,urls:1}})
+})
+
 Meteor.publish('storiescover',function(){
     return StoriesCover.find();
 });

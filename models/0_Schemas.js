@@ -139,8 +139,7 @@ Schemas.Story2 = new SimpleSchema({
     },
     summary: {
         type: String,
-        optional: true,
-        index : 1
+        optional: true
     },
     author: {
         type: Schemas.Author2,
@@ -200,11 +199,20 @@ Schemas.Chapter = new SimpleSchema({
     title: {
         type: String
     },
+    code : {
+        type : String,
+        optional : true
+    },
+    url : {
+        type : String,
+        optional : true
+    },
     content: {
-        type: String
+        type: String,
+        optional: true
     },
     story: {
-        type: Schemas.Story
+        type : String
     },
     created_at: {
         type: Date,
@@ -212,15 +220,18 @@ Schemas.Chapter = new SimpleSchema({
             if (this.isInsert) {
                 return new Date;
             }
-        }
+        },
+        optional : true
     },
     updated_at: {
         type: Date,
         autoValue: function () {
             return new Date;
-        }
+        },
+        optional: true
     }
-})
+});
+
 Categories.attachSchema(Schemas.Category);
 Stories.attachSchema(Schemas.Story);
 Stories2.attachSchema(Schemas.Story2);

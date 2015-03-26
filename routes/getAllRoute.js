@@ -1,7 +1,7 @@
 GetAllController = RouteController.extend({
     template : 'getAllFromSources',
     waitOn : function(){
-        return [Meteor.subscribe('categories'),Meteor.subscribe('authors')]
+        return [Meteor.subscribe('categories'),Meteor.subscribe('authors'),Meteor.subscribe('stories2href_onlyfull')]
     },
     onAfterAction: function(){
         Session.set('stories',[]);
