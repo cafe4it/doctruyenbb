@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71280c55-15d0-465c-8b6c-85fb3f0a39fd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/0_Schemas.js" afterPath="$PROJECT_DIR$/models/0_Schemas.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/mongo.methods.js" afterPath="$PROJECT_DIR$/server/mongo.methods.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/spider.methods.js" afterPath="$PROJECT_DIR$/server/spider.methods.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -79,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mongo.methods.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mongo.methods.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/mongo.methods.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35279188" vertical-offset="1811" max-vertical-offset="2295">
-              <caret line="170" column="49" selection-start-line="170" selection-start-column="49" selection-end-line="170" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1811" max-vertical-offset="2295">
+              <caret line="177" column="43" selection-start-line="177" selection-start-column="43" selection-end-line="177" selection-end-column="43" />
               <folding>
                 <element signature="e#4255#5832#0" expanded="false" />
               </folding>
@@ -101,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spider.methods.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="spider.methods.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/spider.methods.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2919" max-vertical-offset="5505">
-              <caret line="209" column="45" selection-start-line="209" selection-start-column="45" selection-end-line="209" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.52755904" vertical-offset="2904" max-vertical-offset="5490">
+              <caret line="207" column="54" selection-start-line="207" selection-start-column="54" selection-end-line="207" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -149,8 +147,8 @@
         <option value="$PROJECT_DIR$/routes/getAllRoute.js" />
         <option value="$PROJECT_DIR$/client/views/getall/getallfromsources.js" />
         <option value="$PROJECT_DIR$/models/0_Schemas.js" />
-        <option value="$PROJECT_DIR$/server/spider.methods.js" />
         <option value="$PROJECT_DIR$/server/mongo.methods.js" />
+        <option value="$PROJECT_DIR$/server/spider.methods.js" />
       </list>
     </option>
   </component>
@@ -527,7 +525,13 @@
       <option name="project" value="LOCAL" />
       <updated>1427367772643</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="query vẫn rất chậm, đang viết crawler detail chapter">
+      <created>1427457671453</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1427457671453</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -573,7 +577,8 @@
     <MESSAGE value="import rất ch" />
     <MESSAGE value="query vẫn rất chậm, đang viết crawler chi tiết truyện" />
     <MESSAGE value="query vẫn rất chậm, đang viết crawler update chapters" />
-    <option name="LAST_COMMIT_MESSAGE" value="query vẫn rất chậm, đang viết crawler update chapters" />
+    <MESSAGE value="query vẫn rất chậm, đang viết crawler detail chapter" />
+    <option name="LAST_COMMIT_MESSAGE" value="query vẫn rất chậm, đang viết crawler detail chapter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -963,21 +968,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/spider.methods.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2919" max-vertical-offset="5505">
-          <caret line="209" column="45" selection-start-line="209" selection-start-column="45" selection-end-line="209" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/mongo.methods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35279188" vertical-offset="1811" max-vertical-offset="2295">
-          <caret line="170" column="49" selection-start-line="170" selection-start-column="49" selection-end-line="170" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1811" max-vertical-offset="2295">
+          <caret line="177" column="43" selection-start-line="177" selection-start-column="43" selection-end-line="177" selection-end-column="43" />
           <folding>
             <element signature="e#4255#5832#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/spider.methods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52755904" vertical-offset="2904" max-vertical-offset="5490">
+          <caret line="207" column="54" selection-start-line="207" selection-start-column="54" selection-end-line="207" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>

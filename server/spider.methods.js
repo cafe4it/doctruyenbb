@@ -206,7 +206,6 @@ Meteor.methods({
             var rs1 = Async.runSync(function(done){
                 HTTP.get(contentApi({id : chapter.code}),function(err,data){
                     if(err)throw new Meteor.Error(err)
-                    console.log(data)
                     done(null, data.content);
                 })
             });
