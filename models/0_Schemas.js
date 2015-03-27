@@ -169,6 +169,10 @@ Schemas.Story2 = new SimpleSchema({
         type : String,
         optional : true
     },
+    updated : {
+        type : Boolean,
+        optional : true
+    },
     created_at: {
         type: Date,
         autoValue: function () {
@@ -213,6 +217,11 @@ Schemas.Chapter = new SimpleSchema({
     },
     story: {
         type : String
+    },
+    updated : {
+        type : Boolean,
+        defaultValue:false,
+        optional : true
     },
     created_at: {
         type: Date,

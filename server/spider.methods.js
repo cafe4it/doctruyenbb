@@ -76,11 +76,6 @@ Meteor.methods({
     },
     xray_sstruyen_story: function (url) {
         if (url) {
-            var chapterModel = {
-                $root: '.chaptlist ul li',
-                title: 'a',
-                href: 'a[href]'
-            };
             var rs = Async.runSync(function (done) {
                 xRay(url)
                     .format(function (obj) {
@@ -94,11 +89,13 @@ Meteor.methods({
                                     id: href_id,
                                     href : chapter.href
                                 }
-                            })
+                            }),
+                            status = (obj.status.trimLeft().trimRight()=="Còn Tiếp") ? false : true
                         return _.extend(obj, {
                             summary: summary,
                             pages: _.uniq(pages),
-                            chapters: _.sortBy(chapters, 'id')
+                            chapters: _.sortBy(chapters, 'id'),
+                            status : status
                         })
                     })
                     .select({
@@ -106,6 +103,7 @@ Meteor.methods({
                         title: '.titlebar h1',
                         cover: '.truyeninfo .truyenimg img[src]',
                         summary: '#divDes',
+                        status : 'div:nth-child(1) ul li:nth-child(4) div.cp2',
                         chapters: [
                             {
                                 $root: '.chaptlist ul li',
@@ -188,6 +186,32 @@ Meteor.methods({
                     })
             })
             return rs1.result;
+        }
+    },
+    xray_sstruyen_story_chapter : function(chapter){
+        if(chapter){
+            var rs = Async.runSync(function(done){
+                xRay(chapter.url)
+                    .select({
+                        $root: '#main_page',
+                        title : 'div.detail-content center:nth-child(3) h3:nth-child(1)'
+                    })
+                    .run(function(err,data){
+                        if(err)throw new Meteor.Error(err);
+                        done(null, data)
+                    });
+            });
+            var obj = rs.result;
+            var contentApi = _.template('http://www1.sstruyen.com/doc-truyen/index.php?ajax=ct&id=<%=id%>');
+            var rs1 = Async.runSync(function(done){
+                HTTP.get(contentApi({id : chapter.code}),function(err,data){
+                    if(err)throw new Meteor.Error(err)
+                    console.log(data)
+                    done(null, data.content);
+                })
+            });
+            _.extend(obj,{content : rs1.result});
+            return obj;
         }
     },
     scrapy_sstruyen_stories_by_category: function (url, page) {

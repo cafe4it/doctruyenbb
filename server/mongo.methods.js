@@ -140,13 +140,15 @@ Meteor.methods({
         return size;
     },
     update_sstruyen_onlyfull : function(){
-        var Stories = Stories2.find({},{sort:{code :1}}).fetch();
+        var Stories = Stories2.find({updated : {$exists : false}},{sort:{code :1}}).fetch();
         var size = _.size(Stories);
         _.each(Stories,function(story){
             Meteor.call('xray_sstruyen_story',story.urls[0],function(err,data){
                 var rs = Stories2.update({_id : story._id},{
                     $set : {
-                        summary : data.summary
+                        summary : data.summary,
+                        is_finished : data.status,
+                        updated : true
                     }
                 });
 
@@ -156,12 +158,30 @@ Meteor.methods({
                             title : chapter.title,
                             code : chapter.id,
                             url : chapter.href,
-                            story : story._id
+                            story : story._id,
+                            updated : false
                         }
                     });
                 })
 
                 console.log(--size,story.title);
+            })
+        })
+    },
+    update_sstruyen_chapter_content : function(){
+        var chapters = Chapters.find({content : {$exists : false}}).fetch();
+        var size = _.size(chapters);
+        _.each(chapters,function(chapter){
+            Meteor.call('xray_sstruyen_story_chapter',chapter,function(err,data){
+                var rs =Chapters.update({code : chapter.code, content : {$exists : false}},{
+                    $set : {
+                        title : data.title,
+                        content : data.content,
+                        updated : true
+                    }
+                })
+                --size;
+                console.log(rs,size);
             })
         })
     }
